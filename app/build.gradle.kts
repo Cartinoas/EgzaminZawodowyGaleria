@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace = "com.example.egzamin_zawodowy_galeria"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.example.egzamin_zawodowy_galeria"
         minSdk = 26
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
