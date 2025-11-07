@@ -89,6 +89,22 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+
+        switchTlo.setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                        if(b)
+                        {
+                            main.setBackgroundColor(Color.parseColor("#2196F3"));
+                        }
+                        else
+                        {
+                            main.setBackgroundColor(Color.parseColor("#00796B"));
+                        }
+                    }
+                }
+        );
     }
     public void UstawObraz()
     {
