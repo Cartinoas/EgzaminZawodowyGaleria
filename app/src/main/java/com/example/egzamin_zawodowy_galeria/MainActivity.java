@@ -2,9 +2,12 @@ package com.example.egzamin_zawodowy_galeria;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
@@ -23,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button buttonNext;
     Switch switchTlo;
     LinearLayout main;
+    EditText editTextNumber;
     ArrayList<Obraz> obrazki = new ArrayList<>();
     private int AktualneZdjecie = 0;
 
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
         buttonNext = findViewById(R.id.buttonNext);
         switchTlo = findViewById(R.id.switchTlo);
         main = findViewById(R.id.main);
+        editTextNumber = findViewById(R.id.editTextNumber);
 
         obrazki.add(new Obraz(
                 R.drawable.kot1
@@ -105,7 +110,30 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
         );
+        editTextNumber.addTextChangedListener(
+                new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                        if(!charSequence.toString().isEmpty())
+                        {
+                            AktualneZdjecie = Integer.parseInt(charSequence.toString());
+                            UstawObraz();
+                        }
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable editable) {
+
+                    }
+                }
+        );
     }
+
     public void UstawObraz()
     {
         imageViewKot.setImageResource(obrazki.get(AktualneZdjecie).getObraz());
