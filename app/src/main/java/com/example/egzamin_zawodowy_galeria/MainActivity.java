@@ -122,7 +122,10 @@ public class MainActivity extends AppCompatActivity {
                         if(!charSequence.toString().isEmpty())
                         {
                             AktualneZdjecie = Integer.parseInt(charSequence.toString());
-                            UstawObraz();
+                            if(AktualneZdjecie > -1 && AktualneZdjecie < obrazki.size())
+                            {
+                                UstawObraz();
+                            }
                         }
                     }
 
